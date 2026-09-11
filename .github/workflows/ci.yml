@@ -1,3 +1,20 @@
+# TGWAB CI—DEV-STANDARDS §15.
+#
+# Place at:  .github/workflows/ci.yml
+#
+# The job is named `ci` because .github/ruleset-main.json requires the status-check
+# context "ci" (§4). Rename one and you MUST rename both, or merges block forever.
+#
+# This is the no-build adaptation of templates/ci.yml. The repo is the deployed
+# output (no package.json, no dist/), so the Node install/lint/build/harness
+# steps would pass vacuously or fail for missing scripts. Recorded under
+# README.md ## Deviations. The gates below still assert they examined something.
+#
+# There is deliberately NO deploy step here. Deploy lives in deploy.yml
+# (wrangler pages deploy). Two deploy paths would race (§4).
+#
+# Action SHAs are pinned per §15.
+
 name: ci
 
 on:
@@ -21,6 +38,47 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+
+      - name: plumbing files exist
+        run: |
+          set -euo pipefail
+          missing=0
+          for f in \
+            _headers \
+            _redirects \
+            404.html \
+            index.html \
+            robots.txt \
+            sitemap.xml \
+            sitemap-index.xml \
+            ads.txt \
+            llms.txt \
+            humans.txt \
+            site.webmanifest \
+            favicon.ico \
+            apple-touch-icon.png \
+            icon-192.png \
+            icon-512.png \
+            icon-512-maskable.png \
+            og.png \
+            .well-known/security.txt \
+            providers/index.html \
+            resources/index.html \
+            cowan/index.html \
+            directions/index.html \
+            assets/css/main.css \
+            assets/js/main.js
+          do
+            if [ ! -e "$f" ]; then
+              echo "::error::missing plumbing or page: $f"
+              missing=1
+            fi
+          done
+          if [ "$missing" -ne 0 ]; then
+            exit 1
+          fi
+          echo "::notice title=plumbing files (§11)::24 paths present"
+          echo "plumbing: OK (24 paths)"
 
       - name: no-eval on shipped HTML and JS
         run: ./scripts/no-eval.sh . ./assets
@@ -55,10 +113,13 @@ jobs:
       - name: no Squarespace or Google Fonts runtime CDNs
         run: |
           set -euo pipefail
-          hits="$(grep -RIn --include='*.html' --include='*.css' --include='*.js' --include='*.xml' --include='*.txt' -E 'squarespace-cdn|sqspcdn|fonts\\.googleapis|fonts\\.gstatic' . || true)"
+          hits="$(grep -RIn --include='*.html' --include='*.css' --include='*.js' --include='*.xml' --include='*.txt' -E 'squarespace-cdn|sqspcdn|fonts\.googleapis|fonts\.gstatic' . || true)"
           if [ -n "$hits" ]; then
             echo "::error::runtime CDN or Squarespace host found in shipped files"
             printf '%s\n' "$hits"
             exit 1
           fi
           echo "cdn-scan: OK"
+
+      - name: citation range check
+        run: ./scripts/check-citations.sh
