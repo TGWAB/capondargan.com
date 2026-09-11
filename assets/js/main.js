@@ -11,15 +11,13 @@
   if (year) year.textContent = String(new Date().getFullYear());
 
   var video = document.querySelector(".hero-video");
-  var fallback = document.querySelector(".hero-fallback");
-  if (video) {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  if (video && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    video.removeAttribute("autoplay");
+    var freeze = function () {
       video.pause();
-      video.removeAttribute("autoplay");
-    }
-    video.addEventListener("error", function () {
-      video.style.display = "none";
-      if (fallback) fallback.style.display = "block";
-    });
+      try { video.currentTime = 0; } catch (e) {}
+    };
+    if (video.readyState >= 2) freeze();
+    else video.addEventListener("loadeddata", freeze, { once: true });
   }
 })();
