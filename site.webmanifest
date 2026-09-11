@@ -1,0 +1,28 @@
+{
+  "name": "Counseling and Psychiatry on Dargan",
+  "short_name": "CAP on Dargan",
+  "description": "Independent psychiatry and psychology providers at 523 South Dargan Street, Florence, South Carolina.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#f4f0e8",
+  "theme_color": "#111111",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

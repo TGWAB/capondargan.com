@@ -1,0 +1,15 @@
+# Counseling and Psychiatry on Dargan
+
+> CAP on Dargan is a collaboration of independent psychiatry and psychology providers under one roof in Florence, South Carolina. The clinic is at 523 South Dargan Street. Phone (843) 503-1235. Emergency services are not available on site.
+
+## Pages
+
+- [Home](https://capondargan.com/)
+- [Providers](https://capondargan.com/providers/)
+- [Resources](https://capondargan.com/resources/)
+- [Dr. George L Cowan, MD](https://capondargan.com/cowan/)
+- [Directions](https://capondargan.com/directions/)
+
+## Source
+
+- [GitHub repository](https://github.com/TGWAB/capondargan.com)

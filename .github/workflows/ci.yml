@@ -1,0 +1,64 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions: {}
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: no-eval on shipped HTML and JS
+        run: ./scripts/no-eval.sh . ./assets
+
+      - name: no mailto except security.txt
+        run: |
+          set -euo pipefail
+          hits="$(grep -RIn --include='*.html' --include='*.js' --include='*.css' --include='*.xml' --include='*.txt' --include='*.md' 'mailto:' . | grep -v '^\./.well-known/security.txt:' || true)"
+          if [ -n "$hits" ]; then
+            echo "::error::mailto: found outside .well-known/security.txt"
+            printf '%s\n' "$hits"
+            exit 1
+          fi
+          echo "mailto-scan: OK"
+
+      - name: _headers ships the §12 CSP
+        run: |
+          set -euo pipefail
+          grep -q "Content-Security-Policy:" _headers
+          grep -q "default-src 'none'" _headers
+          grep -q "! Access-Control-Allow-Origin" _headers
+          echo "headers: OK"
+
+      - name: robots.txt points at sitemap-index.xml
+        run: |
+          set -euo pipefail
+          grep -qx 'Sitemap: https://capondargan.com/sitemap-index.xml' robots.txt
+          test -f sitemap-index.xml
+          test -f sitemap.xml
+          echo "sitemaps: OK"
+
+      - name: no Squarespace or Google Fonts runtime CDNs
+        run: |
+          set -euo pipefail
+          hits="$(grep -RIn --include='*.html' --include='*.css' --include='*.js' --include='*.xml' --include='*.txt' -E 'squarespace-cdn|sqspcdn|fonts\\.googleapis|fonts\\.gstatic' . || true)"
+          if [ -n "$hits" ]; then
+            echo "::error::runtime CDN or Squarespace host found in shipped files"
+            printf '%s\n' "$hits"
+            exit 1
+          fi
+          echo "cdn-scan: OK"

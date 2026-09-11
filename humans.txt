@@ -1,0 +1,10 @@
+/* TEAM */
+Clinic: Counseling and Psychiatry on Dargan (CAPD)
+Location: Florence, South Carolina, USA
+Contact: (843) 503-1235
+
+/* SITE */
+Hosted by: TechGuyWithABeard
+Website: https://techguywithabeard.com/
+Standards: HTML5, CSS3, JavaScript
+Last update: 2026-09-11

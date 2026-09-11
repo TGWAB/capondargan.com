@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://capondargan.com/sitemap-index.xml
