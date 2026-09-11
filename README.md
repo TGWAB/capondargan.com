@@ -84,6 +84,8 @@ Built to the TGWAB Dev Standards **v2.86.0** (internal). Client property, **Full
 - §9—Privacy / Terms pages—client brochure site, same omission as elsanjose.com and grandfathershoney.com; not a TGWAB product—2026-09-11—permanent
 - §15—npm CI template—no `package.json` because there is no Node build; `ci.yml` runs bash gates (plumbing, no-eval, no mailto, headers, CDN scan, citations) instead of `npm ci` / lint / Playwright—2026-09-11—permanent
 - §12—Permissions-Policy `autoplay=()`—landing-page muted looping hero video needs `autoplay=(self)`—2026-09-11—permanent
+- §1—footer ❤️ credit—Squarespace copyright is `Copyright © CAP on Dargan` / `Hosted by TechGuyWithABeard` only—2026-09-11—permanent
+- §12—frame-src Google Maps—`/directions` embeds the clinic map, same as the Squarespace map block—2026-09-11—permanent
 
 ## License
 
