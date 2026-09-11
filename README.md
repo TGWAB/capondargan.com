@@ -39,7 +39,7 @@ The required status-check context is the job named **`ci`** (`.github/workflows/
 
 - plumbing files and clinic pages exist
 - `scripts/no-eval.sh` over `.` and `./assets`
-- no `mailto:` except `.well-known/security.txt`
+- no email links except `.well-known/security.txt`
 - `_headers` carries the §12 CSP
 - `robots.txt` points at `sitemap-index.xml`
 - no Squarespace or Google Fonts runtime CDNs
