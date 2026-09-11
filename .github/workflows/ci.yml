@@ -67,7 +67,8 @@ jobs:
             cowan/index.html \
             directions/index.html \
             assets/css/main.css \
-            assets/js/main.js
+            assets/js/main.js \
+            assets/videos/hero.mp4
           do
             if [ ! -e "$f" ]; then
               echo "::error::missing plumbing or page: $f"
@@ -77,8 +78,8 @@ jobs:
           if [ "$missing" -ne 0 ]; then
             exit 1
           fi
-          echo "::notice title=plumbing files (§11)::24 paths present"
-          echo "plumbing: OK (24 paths)"
+          echo "::notice title=plumbing files (§11)::25 paths present"
+          echo "plumbing: OK (25 paths)"
 
       - name: no-eval on shipped HTML and JS
         run: ./scripts/no-eval.sh . ./assets
@@ -123,3 +124,12 @@ jobs:
 
       - name: citation range check
         run: ./scripts/check-citations.sh
+
+      - name: hero video is first-party
+        run: |
+          set -euo pipefail
+          test -f assets/videos/hero.mp4
+          grep -q "media-src 'self'" _headers
+          grep -q "autoplay=(self)" _headers
+          grep -q '/assets/videos/hero.mp4' index.html
+          echo "hero-video: OK"

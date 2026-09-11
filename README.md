@@ -44,6 +44,7 @@ The required status-check context is the job named **`ci`** (`.github/workflows/
 - `robots.txt` points at `sitemap-index.xml`
 - no Squarespace or Google Fonts runtime CDNs
 - `scripts/check-citations.sh` (DS §N range)
+- first-party hero video plus `media-src 'self'`
 
 Deploy is a separate workflow (`.github/workflows/deploy.yml`). CI does not deploy.
 
@@ -67,6 +68,7 @@ Google Workspace on this zone. Do not change MX, the Google SPF (`include:_spf.g
 | Manrope 400/600/700 woff2 | [Fontsource](https://fontsource.org/fonts/manrope) / [Google Fonts](https://fonts.google.com/specimen/Manrope) | SIL Open Font License 1.1 |
 | Nunito Sans 400/600 woff2 | [Fontsource](https://fontsource.org/fonts/nunito-sans) / [Google Fonts](https://fonts.google.com/specimen/Nunito+Sans) | SIL Open Font License 1.1 |
 | Hero photograph | Getty Images 1331029545, Drazen Zigic, previously served from the Squarespace site | Getty license held by the client; hosted first-party, not hotlinked |
+| Hero background video | Pexels 5713014 (`5713014-hd_1280_720_25fps.mp4`), the Squarespace native video background | [Pexels License](https://www.pexels.com/license/); hosted first-party |
 | Provider illustrations, resource photos, directions background, wordmark | Previously served from the live Squarespace site | Client content; hosted first-party |
 
 ## Standards
@@ -81,6 +83,7 @@ Built to the TGWAB Dev Standards **v2.86.0** (internal). Client property, **Full
 - §1—JetBrains Mono headings—client clinic keeps the inherited Manrope / Nunito Sans pairing, self-hosted as woff2—2026-09-11—permanent
 - §9—Privacy / Terms pages—client brochure site, same omission as elsanjose.com and grandfathershoney.com; not a TGWAB product—2026-09-11—permanent
 - §15—npm CI template—no `package.json` because there is no Node build; `ci.yml` runs bash gates (plumbing, no-eval, no mailto, headers, CDN scan, citations) instead of `npm ci` / lint / Playwright—2026-09-11—permanent
+- §12—Permissions-Policy `autoplay=()`—landing-page muted looping hero video needs `autoplay=(self)`—2026-09-11—permanent
 
 ## License
 
