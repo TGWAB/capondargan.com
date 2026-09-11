@@ -33,6 +33,20 @@ The canonical host is **`capondargan.com`** (apex). `www.capondargan.com` 301s t
 
 That matches house Cloudflare Pages sites (`elsanjose.com`, `grandfathershoney.com`) and is recorded here so it is not reversed.
 
+## CI
+
+The required status-check context is the job named **`ci`** (`.github/workflows/ci.yml`). The branch ruleset on `main` requires it. There is no Node build: the gates scan the repo as shipped output.
+
+- plumbing files and clinic pages exist
+- `scripts/no-eval.sh` over `.` and `./assets`
+- no email links except `.well-known/security.txt`
+- `_headers` carries the §12 CSP
+- `robots.txt` points at `sitemap-index.xml`
+- no Squarespace or Google Fonts runtime CDNs
+- `scripts/check-citations.sh` (DS §N range)
+
+Deploy is a separate workflow (`.github/workflows/deploy.yml`). CI does not deploy.
+
 ## Deploy
 
 One repo → one Cloudflare Pages project (`capondargan-com`, TechGuyWithABeard account), deployed by **GitHub Actions** with `wrangler pages deploy`. Framework preset **None**. No build step: the repo is the output. Cloudflare's Pages Git integration is off. There is no other deploy path.
@@ -66,7 +80,7 @@ Built to the TGWAB Dev Standards **v2.86.0** (internal). Client property, **Full
 - §14—dark mode legibility—site is light-only by client design (`color-scheme: light only`)—2026-09-11—permanent
 - §1—JetBrains Mono headings—client clinic keeps the inherited Manrope / Nunito Sans pairing, self-hosted as woff2—2026-09-11—permanent
 - §9—Privacy / Terms pages—client brochure site, same omission as elsanjose.com and grandfathershoney.com; not a TGWAB product—2026-09-11—permanent
-- §15—npm CI template—no `package.json` because there is no Node build; `ci.yml` runs bash gates (no-eval, no mailto, headers, CDN scan) instead of `npm ci`—2026-09-11—permanent
+- §15—npm CI template—no `package.json` because there is no Node build; `ci.yml` runs bash gates (plumbing, no-eval, no mailto, headers, CDN scan, citations) instead of `npm ci` / lint / Playwright—2026-09-11—permanent
 
 ## License
 
