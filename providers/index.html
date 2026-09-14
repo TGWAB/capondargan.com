@@ -33,19 +33,21 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="sitemap" type="application/xml" href="/sitemap-index.xml">
   <script defer data-domain="capondargan.com" src="https://plausible.thompsonblack.us/js/script.js"></script>
+  <script>document.documentElement.className = "js";</script>
   <link rel="stylesheet" href="/assets/css/main.css">
 
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
+    <div class="header-fx" aria-hidden="true"><div class="header-shadow"></div><div class="header-blur"></div><div class="header-gradient"></div></div>
     <div class="header-inner">
-      <a class="logo" href="/"><img src="/assets/images/logo.png" width="361" height="129" alt="Counseling and Psychiatry on Dargan"></a>
-      <nav class="site-nav" id="site-nav">
+      <a class="logo" href="/"><img src="/assets/images/logo.webp" width="361" height="129" alt="Counseling and Psychiatry on Dargan"></a>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
         <ul>
-        <li><a href="/providers/" aria-current="page">Providers</a></li>
-        <li><a href="/resources/">Resources</a></li>
-        <li><a href="/directions/">Directions</a></li>
+          <li><a href="/providers/" aria-current="page">Providers</a></li>
+          <li><a href="/resources/">Resources</a></li>
+          <li><a href="/directions/">Directions</a></li>
         </ul>
       </nav>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
@@ -54,70 +56,56 @@
     </div>
   </header>
   <main id="main">
-    <div class="wrap">
-      <h1>Our Providers</h1>
-      <div class="providers">
-        <a class="provider-card" href="/cowan/">
-          <img src="/assets/images/providers/george-cowan.jpg" width="1536" height="1536" alt="Illustration of Dr. George Cowan, MD">
-          <div class="body">
-            <h2>Dr. George Cowan, MD</h2>
-            <p class="role">Psychiatry</p>
-            <p class="more">More Info</p>
-          </div>
-        </a>
-        <article class="provider-card">
-          <img src="/assets/images/providers/tim-underwood.png" width="500" height="500" alt="Illustration of Tim Underwood, LPC">
-          <div class="body">
-            <h2>Tim Underwood, LPC</h2>
-            <p class="role">Counseling</p>
-          </div>
-        </article>
-        <article class="provider-card">
-          <img src="/assets/images/providers/sasha-federer.jpg" width="1536" height="1536" alt="Illustration of Dr. Sasha Federer, Ph.D.">
-          <div class="body">
-            <h2>Dr. Sasha Federer, Ph.D.</h2>
-            <p class="role">Psychology</p>
-          </div>
-        </article>
-        <article class="provider-card">
-          <img src="/assets/images/providers/emily-ross.jpg" width="300" height="300" alt="Illustration of Emily Ross, CACI">
-          <div class="body">
-            <h2>Emily Ross, CACI</h2>
-            <p class="role">Counseling</p>
-          </div>
-        </article>
-        <article class="provider-card">
-          <img src="/assets/images/providers/melva-gibeau.jpg" width="243" height="300" alt="Illustration of Melva Gibeau, NP">
-          <div class="body">
-            <h2>Melva Gibeau, NP</h2>
-            <p class="role">Psychiatry</p>
-          </div>
-        </article>
+    <section class="sec first bg-cream has-divider" style="--div-h:6vw;--div-fill:var(--navy)">
+      <div class="sec-content list" style="--list-pad:6.6;--title-gap:40px">
+        <div class="list-title"><h1 class="t-h2">Our Providers</h1></div>
+        <ul class="list-items provider-list">
+        <li class="provider">
+          <div class="media"><img src="/assets/images/providers/george-cowan.jpg" width="1536" height="1536" alt="Illustration of Dr. George Cowan, MD"></div>
+          <h2 class="t-h4">Dr. George Cowan, MD</h2>
+          <p class="desc">Psychiatry</p>
+          <a class="btn" href="/cowan/">More Info</a>
+        </li>
+        <li class="provider">
+          <div class="media"><img src="/assets/images/providers/tim-underwood.png" width="500" height="500" alt="Illustration of Tim Underwood, LPC"></div>
+          <h2 class="t-h4">Tim Underwood, LPC</h2>
+          <p class="desc">Counseling</p>
+        </li>
+        <li class="provider">
+          <div class="media"><img src="/assets/images/providers/sasha-federer.jpg" width="1536" height="1536" alt="Illustration of Dr. Sasha Federer, Ph.D."></div>
+          <h2 class="t-h4">Dr. Sasha Federer, Ph.D.</h2>
+          <p class="desc">Psychology</p>
+        </li>
+        <li class="provider">
+          <div class="media"><img src="/assets/images/providers/emily-ross.jpg" width="300" height="300" alt="Illustration of Emily Ross, CACI"></div>
+          <h2 class="t-h4">Emily Ross, CACI</h2>
+          <p class="desc">Counseling</p>
+        </li>
+        <li class="provider">
+          <div class="media"><img src="/assets/images/providers/melva-gibeau.jpg" width="243" height="300" alt="Illustration of Melva Gibeau, NP"></div>
+          <h2 class="t-h4">Melva Gibeau, NP</h2>
+          <p class="desc"><strong>Psychiatry</strong></p>
+        </li>
+        </ul>
       </div>
-    </div>
+      <svg class="divider" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path class="fill" d="M-.005,.5C.24625,-.136 .24625,-.136 .4975,.5C.74875,1.136 .74875,1.136 1,.5L1.01,.5L1.01,1L-.005,1Z"/><path class="stroke" vector-effect="non-scaling-stroke" d="M-.005,.5C.24625,-.136 .24625,-.136 .4975,.5C.74875,1.136 .74875,1.136 1,.5L1.01,.5"/></svg>
+    </section>
   </main>
   <footer class="site-footer">
-    <div class="footer-band">
-      <div class="footer-grid">
-        <section>
-          <h2>Location</h2>
-          <p>Located at 523 South Dargan Street in the historic district of Florence, South Carolina, CAP on Dargan is a whole-mind clinic. Patients can find independent psychiatrists, counselors, psychologists and support staff to help facilitate the best care possible.</p>
-        </section>
-        <section>
-          <h2>Hours</h2>
-          <p>Weekdays 8:00 am — 8:00 pm</p>
-          <p>Saturday 9:30 am — 5:30 pm</p>
-          <p>Sunday 9:30 am — 3:00 pm</p>
-        </section>
-        <section>
-          <h2>Contact</h2>
-          <p><a href="https://maps.app.goo.gl/Atf7Ke5DCXfAxsNs8">523 S Dargan St<br>Florence, SC 29506</a></p>
-          <p><a href="tel:+18435031235">(843) 503-1235</a></p>
-        </section>
+    <div class="sec bg-navy" style="--minh:33vh">
+      <div class="sec-content fe" style="--pad:3.3;--rd:5;--rm:18">
+        <div style="--d:1/2/3/14;--m:1/2/3/10;--vd:center"><h2 class="t-h4 center">Location</h2></div>
+        <div style="--d:3/2/6/14;--m:3/2/8/10"><p class="justify">Located at 523 South Dargan Street in the historic district of Florence, South Carolina, CAP on Dargan is a whole-mind clinic. Patients can find independent psychiatrists, counselors, psychologists and support staff to help facilitate the best care possible.</p></div>
+        <div style="--d:1/14/3/20;--m:8/2/10/10;--vd:center"><h2 class="t-h4 center">Hours</h2></div>
+        <div style="--d:3/14/6/20;--m:10/2/13/10"><p class="center">Weekdays 8:00 am — 8:00 pm<br>Saturday 9:30 am — 5:30 pm<br>Sunday 9:30 am — 3:00 pm</p></div>
+        <div style="--d:1/20/3/26;--m:13/2/15/10;--vd:center"><h2 class="t-h4 center">Contact</h2></div>
+        <div style="--d:3/20/6/26;--m:15/2/19/10"><p class="center"><a href="https://maps.app.goo.gl/Atf7Ke5DCXfAxsNs8" target="_blank" rel="noopener">523 S Dargan St<br>Florence, SC 29506</a><br><a href="tel:+18435031235">(843) 503-1235</a></p></div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>Copyright &copy; <span id="footer-year">2026</span> CAP on Dargan<br>Hosted by <a href="https://techguywithabeard.com" target="_blank" rel="noopener">TechGuyWithABeard</a></p>
+    <div class="sec bg-cream" style="--minh:5vh">
+      <div class="sec-content fe" style="--pad:0.5;--rd:2;--rm:3">
+        <div style="--d:1/2/3/8;--m:2/2/4/10;--vd:flex-end"><p>Copyright &copy; <span id="footer-year">2026</span> CAP on Dargan<br>Hosted by <a class="plain" href="https://techguywithabeard.com" target="_blank" rel="noopener">TechGuyWithABeard</a></p></div>
+      </div>
     </div>
   </footer>
   <script src="/assets/js/main.js"></script>

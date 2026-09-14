@@ -33,6 +33,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="sitemap" type="application/xml" href="/sitemap-index.xml">
   <script defer data-domain="capondargan.com" src="https://plausible.thompsonblack.us/js/script.js"></script>
+  <script>document.documentElement.className = "js";</script>
   <link rel="stylesheet" href="/assets/css/main.css">
   <script type="application/ld+json">
   {
@@ -67,13 +68,14 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
+    <div class="header-fx" aria-hidden="true"><div class="header-shadow"></div><div class="header-blur"></div><div class="header-gradient"></div></div>
     <div class="header-inner">
-      <a class="logo" href="/"><img src="/assets/images/logo.png" width="361" height="129" alt="Counseling and Psychiatry on Dargan"></a>
-      <nav class="site-nav" id="site-nav">
+      <a class="logo" href="/"><img src="/assets/images/logo.webp" width="361" height="129" alt="Counseling and Psychiatry on Dargan"></a>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
         <ul>
-        <li><a href="/providers/">Providers</a></li>
-        <li><a href="/resources/">Resources</a></li>
-        <li><a href="/directions/">Directions</a></li>
+          <li><a href="/providers/">Providers</a></li>
+          <li><a href="/resources/">Resources</a></li>
+          <li><a href="/directions/">Directions</a></li>
         </ul>
       </nav>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
@@ -82,44 +84,39 @@
     </div>
   </header>
   <main id="main">
-    <section class="hero-bleed">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" width="1280" height="720" aria-hidden="true">
+    <section class="sec first bg-navy has-divider" style="--minh:66vh;--div-h:6vw;--div-fill:var(--light-accent)">
+      <video class="sec-media hero-video" autoplay muted loop playsinline preload="auto" width="1280" height="720" aria-hidden="true">
         <source src="/assets/videos/hero.mp4" type="video/mp4">
       </video>
-      <div class="hero-scrim"></div>
-      <div class="hero-copy wrap">
-        <h1>Comprehensive Mental Health Treatment</h1>
-        <p class="lede">CAP on Dargan is a collaboration of independent psychiatry and psychology providers under one roof to help our patients receive the best and most well-rounded care with ease.</p>
+      <div class="sec-content fe" style="--pad:6.6;--rd:9;--rm:14">
+        <div style="--d:4/3/10/14;--m:6/2/11/10"><h1 class="t-h1">Comprehensive Mental Health Treatment</h1></div>
+        <div style="--d:4/15/10/23;--m:11/2/15/10"><p class="t-large bold">CAP on Dargan is a collaboration of independent psychiatry and psychology providers under one roof to help our patients receive the best and most well-rounded care with ease.</p></div>
       </div>
+      <svg class="divider" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path class="fill" d="M0,0C0,0 .25,1 .5,1C.75,1 1,0 1,0L1,1L0,1Z"/></svg>
     </section>
-    <section class="band-light">
-      <div class="wrap emergency">
-        <p><strong>Emergency Services are not available at this time.</strong> If you are in a crisis, please call <a href="tel:911">911</a> and get to the nearest Emergency Room for critical care. If you are in a crisis but do not need acute, medical attention, we strongly recommend contacting The Carolina Center for Behavioral Health 24/7 Crisis Line by calling <a href="tel:+18642352335">864-235-2335</a>.</p>
+    <section class="sec bg-light has-divider" style="--div-h:8vw;--div-fill:var(--navy)">
+      <div class="sec-content fe" style="--rd:9;--rm:13">
+        <div style="--d:3/2/8/12;--m:2/2/6/10"><h2 class="t-h2 center">Emergency Services are <span class="highlight">not available</span> at this time.</h2></div>
+        <div style="--d:3/15/9/25;--m:6/2/14/10"><p class="t-large">If you are in a crisis, please call <a href="tel:911">911</a> and get to the nearest Emergency Room for critical care. If you are in a crisis but do not need acute, medical attention, we strongly recommend contacting The Carolina Center for Behavioral Health 24/7 Crisis Line by calling <a href="tel:+18642352335">864-235-2335</a>.</p></div>
       </div>
+      <svg class="divider" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path class="fill" d="M0,1C.25,1 .5,1 1,0L1,1Z"/></svg>
     </section>
   </main>
   <footer class="site-footer">
-    <div class="footer-band">
-      <div class="footer-grid">
-        <section>
-          <h2>Location</h2>
-          <p>Located at 523 South Dargan Street in the historic district of Florence, South Carolina, CAP on Dargan is a whole-mind clinic. Patients can find independent psychiatrists, counselors, psychologists and support staff to help facilitate the best care possible.</p>
-        </section>
-        <section>
-          <h2>Hours</h2>
-          <p>Weekdays 8:00 am — 8:00 pm</p>
-          <p>Saturday 9:30 am — 5:30 pm</p>
-          <p>Sunday 9:30 am — 3:00 pm</p>
-        </section>
-        <section>
-          <h2>Contact</h2>
-          <p><a href="https://maps.app.goo.gl/Atf7Ke5DCXfAxsNs8">523 S Dargan St<br>Florence, SC 29506</a></p>
-          <p><a href="tel:+18435031235">(843) 503-1235</a></p>
-        </section>
+    <div class="sec bg-navy" style="--minh:33vh">
+      <div class="sec-content fe" style="--pad:3.3;--rd:5;--rm:18">
+        <div style="--d:1/2/3/14;--m:1/2/3/10;--vd:center"><h2 class="t-h4 center">Location</h2></div>
+        <div style="--d:3/2/6/14;--m:3/2/8/10"><p class="justify">Located at 523 South Dargan Street in the historic district of Florence, South Carolina, CAP on Dargan is a whole-mind clinic. Patients can find independent psychiatrists, counselors, psychologists and support staff to help facilitate the best care possible.</p></div>
+        <div style="--d:1/14/3/20;--m:8/2/10/10;--vd:center"><h2 class="t-h4 center">Hours</h2></div>
+        <div style="--d:3/14/6/20;--m:10/2/13/10"><p class="center">Weekdays 8:00 am — 8:00 pm<br>Saturday 9:30 am — 5:30 pm<br>Sunday 9:30 am — 3:00 pm</p></div>
+        <div style="--d:1/20/3/26;--m:13/2/15/10;--vd:center"><h2 class="t-h4 center">Contact</h2></div>
+        <div style="--d:3/20/6/26;--m:15/2/19/10"><p class="center"><a href="https://maps.app.goo.gl/Atf7Ke5DCXfAxsNs8" target="_blank" rel="noopener">523 S Dargan St<br>Florence, SC 29506</a><br><a href="tel:+18435031235">(843) 503-1235</a></p></div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>Copyright &copy; <span id="footer-year">2026</span> CAP on Dargan<br>Hosted by <a href="https://techguywithabeard.com" target="_blank" rel="noopener">TechGuyWithABeard</a></p>
+    <div class="sec bg-cream" style="--minh:5vh">
+      <div class="sec-content fe" style="--pad:0.5;--rd:2;--rm:3">
+        <div style="--d:1/2/3/8;--m:2/2/4/10;--vd:flex-end"><p>Copyright &copy; <span id="footer-year">2026</span> CAP on Dargan<br>Hosted by <a class="plain" href="https://techguywithabeard.com" target="_blank" rel="noopener">TechGuyWithABeard</a></p></div>
+      </div>
     </div>
   </footer>
   <script src="/assets/js/main.js"></script>
