@@ -47,13 +47,44 @@ jobs:
             echo "ok=true" >> "$GITHUB_OUTPUT"
           fi
 
+      # Stage only the site into _site/. The repo root also holds CI config,
+      # scripts, and Markdown, and deploying `.` published all of them at
+      # capondargan.com (README.md, scripts/*.sh, .github/**).
+      - name: Stage site files
+        if: steps.gate.outputs.ok == 'true'
+        run: >
+          rsync -a
+          --exclude='.git'
+          --exclude='.github/'
+          --exclude='.gitignore'
+          --exclude='.nvmrc'
+          --exclude='scripts/'
+          --exclude='*.md'
+          --exclude='_site/'
+          ./ _site/
+
+      # Fails in both directions: an internal path that was staged, or a file
+      # the site needs that the excludes dropped.
+      - name: Verify the staged site
+        if: steps.gate.outputs.ok == 'true'
+        run: |
+          leaked=$(find _site \( -name '*.md' -o -path '_site/.github*' -o -path '_site/scripts*' -o -name '.gitignore' -o -name '.nvmrc' \) -print)
+          if [ -n "$leaked" ]; then
+            echo "Internal paths were staged:"
+            echo "$leaked"
+            exit 1
+          fi
+          for f in index.html 404.html _headers _redirects robots.txt .well-known/security.txt; do
+            [ -f "_site/$f" ] || { echo "Missing from _site/: $f"; exit 1; }
+          done
+
       - name: Deploy to Cloudflare Pages
         if: steps.gate.outputs.ok == 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || '8a0d49b1f3fdcdadec135562ec8a4fdc' }}
         run: >
-          npx wrangler@4 pages deploy .
+          npx wrangler@4 pages deploy _site
           --project-name capondargan-com
           --branch ${{ github.ref == 'refs/heads/main' && 'main' || github.head_ref }}
           --commit-dirty=false
