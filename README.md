@@ -50,12 +50,12 @@ Deploy is a separate workflow (`.github/workflows/deploy.yml`). CI does not depl
 
 ## Deploy
 
-One repo → one Cloudflare Pages project (`capondargan-com`, TechGuyWithABeard account), deployed by **GitHub Actions** with `wrangler pages deploy`. Framework preset **None**. No build step: the repo is the output. Cloudflare's Pages Git integration is off. There is no other deploy path.
+One repo → one Cloudflare Pages project (`capondargan-com`, TechGuyWithABeard account), deployed by **GitHub Actions** with `wrangler pages deploy`. Framework preset **None**. No build step: the repo, minus its internals, is the output. Cloudflare's Pages Git integration is off. There is no other deploy path.
 
 1. Open a draft pull request
 2. CI (`ci` job) must pass
 3. Merge to `main`
-4. The deploy workflow uploads the repo root to Pages
+4. The deploy workflow stages the site into `_site/`, leaving out `.github/`, `scripts/`, and Markdown, and uploads that to Pages
 
 ## Mail
 
