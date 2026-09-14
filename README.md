@@ -65,8 +65,9 @@ Google Workspace on this zone. Do not change MX, the Google SPF (`include:_spf.g
 
 | Asset | Source | License |
 | --- | --- | --- |
-| Manrope 400/600/700 woff2 | [Fontsource](https://fontsource.org/fonts/manrope) / [Google Fonts](https://fonts.google.com/specimen/Manrope) | SIL Open Font License 1.1 |
-| Nunito Sans 400/600 woff2 | [Fontsource](https://fontsource.org/fonts/nunito-sans) / [Google Fonts](https://fonts.google.com/specimen/Nunito+Sans) | SIL Open Font License 1.1 |
+| Manrope variable woff2 (latin) | [Google Fonts](https://fonts.google.com/specimen/Manrope), the same file the Squarespace site served | SIL Open Font License 1.1 |
+| Nunito Sans variable woff2 (latin) | [Google Fonts](https://fonts.google.com/specimen/Nunito+Sans), the same file the Squarespace site served | SIL Open Font License 1.1 |
+| Logo (WebP) | The Squarespace site's header logo rendition | Client artwork; hosted first-party |
 | Hero photograph | Getty Images 1331029545, Drazen Zigic, previously served from the Squarespace site | Getty license held by the client; hosted first-party, not hotlinked |
 | Hero background video | Pexels 5713014 (`5713014-hd_1280_720_25fps.mp4`), the Squarespace native video background | [Pexels License](https://www.pexels.com/license/); hosted first-party |
 | Provider illustrations, resource photos, directions background, wordmark | Previously served from the live Squarespace site | Client content; hosted first-party |

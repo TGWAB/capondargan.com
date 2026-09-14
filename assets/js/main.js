@@ -2,10 +2,23 @@
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.querySelector(".site-nav");
   if (toggle && nav) {
-    toggle.addEventListener("click", function () {
-      var open = nav.classList.toggle("is-open");
+    var setOpen = function (open) {
+      nav.classList.toggle("is-open", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
       document.body.classList.toggle("nav-open", open);
+    };
+    toggle.addEventListener("click", function () {
+      setOpen(!nav.classList.contains("is-open"));
+    });
+    nav.addEventListener("click", function (event) {
+      if (event.target.closest("a")) setOpen(false);
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && nav.classList.contains("is-open")) {
+        setOpen(false);
+        toggle.focus();
+      }
     });
   }
   var year = document.getElementById("footer-year");
